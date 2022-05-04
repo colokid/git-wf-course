@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  build-prod:
+    docker:
+      - image: circleci/ruby:2.4.1-node-browsers
+
+    steps:
+      - checkout
+      - run:
+          name: build dependencies
+          command: bundle install
+      - run:
+          name: Build the jekyll site
+          command: bundle exec jekyll build
+      - run:
+          name: PrintCurTime
+          command: date
+
+workflows:
+  build-workflow:
+    jobs:
+      - build-prod
+
