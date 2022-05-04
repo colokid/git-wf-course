@@ -16,14 +16,12 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.4.1-node-browsers
-      
+
       steps:
         - checkout
-        
         - run:
           name: Greeting
           command: echo Hello, world.
-          
         - run:
           name: PrintCurTime
           command: date
